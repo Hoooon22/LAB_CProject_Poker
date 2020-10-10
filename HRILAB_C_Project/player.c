@@ -26,16 +26,6 @@ void bettingPlayer(struct Player *p)
 	printf("done.\n");
 }
 
-void viewPlayerCard(struct Player* p)
-{
-	printf("\n-------------------------\n");
-	for (int i = 0; p->card[i].shape != NULL ; i++)
-	{
-		printf("Player Card [%d] : %s %d\n", i+1, p->card[i].shape, p->card[i].number);
-	}
-	printf("-------------------------\n\n");
-}
-
 /* ---------------------------------------------------- */
 // Computer
 
@@ -51,12 +41,14 @@ void bettingComputer(struct Player *c)
 	printf("Computer betting complete.\n");
 }
 
-void viewComputerCard(struct Player *c)
+/* ---------------------------------------------------- */
+// all
+void viewCard(struct Player *a)
 {
 	printf("\n-------------------------\n");
-	for (int i = 0; c->card[i].shape != NULL; i++)
+	for (int i = 0; a->card[i].shape != NULL; i++)
 	{
-		printf("Computer Card [%d] : %s %d\n", i + 1, c->card[i].shape, c->card[i].number);
+		printf("Card [%d] : %s %d\n", i + 1, a->card[i].shape, a->card[i].number);
 	}
 	printf("-------------------------\n\n");
 }

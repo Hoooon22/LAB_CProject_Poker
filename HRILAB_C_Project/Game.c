@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "Game.h"
 
-void start(struct Deck *deck, struct Player *p, struct Computer *c)
+void start(struct Deck *deck, struct Player *p, struct Player *c)
 {
 	initDeck(deck);
 
