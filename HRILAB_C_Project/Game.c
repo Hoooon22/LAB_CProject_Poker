@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "Game.h"
 
-void start(struct Deck *deck, struct Player *p, struct Player *c[])
+void start(struct Deck *deck, struct Player *p, struct Player c[])
 {
 	initDeck(deck);
 
@@ -15,18 +15,10 @@ void start(struct Deck *deck, struct Player *p, struct Player *c[])
 	}
 	printf("Init complete!\n\n");
 
+	int turn = 0; // turn
 
-	// Bet
-	bettingPlayer(p);
-	for (int i = 0; i < 3; i++)
-	{
-		bettingComputer(&c[i]);
-	}
-
-	int turn = 1; // turn
 	// game(1) - give three card
-
-	printf("\n-------------Turn 1-------------\n");
+	printf("\n¡à¡à¡à¡à¡à¡à¡à¡à¡à Turn %d ¡à¡à¡à¡à¡à¡à¡à¡à¡à\n", ++turn);
 	printf("Giving card...\n");
 
 	for (int i = 0; i < 3; i++)
@@ -48,5 +40,37 @@ void start(struct Deck *deck, struct Player *p, struct Player *c[])
 	viewCard(&c[1]);
 	printf("==Computer 3 Card list==\n"); // Computer 3
 	viewCard(&c[2]);
+
+	printf("==Turn %d Betting!==\n", turn); // turn 1 Betting
+	bettingPlayer(p);
+
+	printf("\n¡à¡à¡à¡à¡à¡à¡à Turn %d Finish ¡à¡à¡à¡à¡à¡à¡à\n", turn);
+
+	// game(2) - give one card
+	printf("\n¡à¡à¡à¡à¡à¡à¡à¡à¡à Turn %d ¡à¡à¡à¡à¡à¡à¡à¡à¡à\n", ++turn);
+	printf("Giving card...\n");
+	getCard(p, deck);
+	getCard(&c[0], deck);
+	getCard(&c[1], deck);
+	getCard(&c[2], deck);
+
+	for (int i = 0; i < 3; i++)
+	{
+		openCard(&c[i], 3, 1);
+	}
+
+	printf("==Player Card list==\n"); // player
+	viewCard(p);
+	printf("==Computer 1 Card list==\n"); // Computer 1
+	viewCard(&c[0]);
+	printf("==Computer 2 Card list==\n"); // Computer 2
+	viewCard(&c[1]);
+	printf("==Computer 3 Card list==\n"); // Computer 3
+	viewCard(&c[2]);
+
+	printf("==Turn %d Betting!==\n", turn); // turn 1 Betting
+	bettingPlayer(p);
+
+	printf("\n¡à¡à¡à¡à¡à¡à¡à Turn %d Finish ¡à¡à¡à¡à¡à¡à¡à\n", turn);
 
 }

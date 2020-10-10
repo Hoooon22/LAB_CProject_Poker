@@ -27,7 +27,8 @@ void bettingPlayer(struct Player *p)
 		printf("Over money! Try again. : ");
 		scanf("%d", &num);
 	}
-	p->bet_m = num;
+	p->money -= num;
+	p->bet_m += num;
 	printf("done.\n");
 }
 
@@ -48,6 +49,7 @@ void bettingComputer(struct Player *c)
 {
 	srand((unsigned int)time(NULL));
 	c->bet_m = 10 + (10 * rand() % (10)); // 10 ~ 100
+	c->money -= c->bet_m;
 	printf("Computer betting complete.\n");
 }
 
