@@ -42,9 +42,14 @@ void shuffle(struct Deck *deck) {
 	int rn; 
 
 	for (int i = deck->count; i < 52; i++) {
-		rn = rand() % (52 - i);
+		rn = rand() % (52 - i) + i;
 		c1 = deck->card[i]; 
 		deck->card[i] = deck->card[rn];
 		deck->card[rn] = c1;
 	} 
+}
+
+struct Card giveCard(struct Deck *deck)
+{
+	return deck->card[deck->count++];
 }

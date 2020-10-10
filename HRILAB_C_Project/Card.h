@@ -14,3 +14,4 @@ struct Deck // Deck
 
 void initDeck(struct Deck *deck); // init + suffle the deck
 void shuffle(struct Deck *deck); // count ~ last
+struct Card giveCard(struct Deck *deck); // give card to player (and count++)

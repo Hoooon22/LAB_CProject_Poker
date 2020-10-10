@@ -9,6 +9,11 @@
 void initPlayer(struct Player *p)
 {
 	p->money = 1000;
+	for (int i = 0; i < 7; i++)
+	{
+		p->open[i] = 1; // open
+	}
+	p->count = 0;
 }
 
 void bettingPlayer(struct Player *p)
@@ -32,6 +37,11 @@ void bettingPlayer(struct Player *p)
 void initComputer(struct Player *c)
 {
 	c->money = 1000; // $1000
+	for (int i = 0; i < 7; i++)
+	{
+		c->open[i] = 0; // close
+	}
+	c->count = 0;
 }
 
 void bettingComputer(struct Player *c)
@@ -46,9 +56,26 @@ void bettingComputer(struct Player *c)
 void viewCard(struct Player *a)
 {
 	printf("\n-------------------------\n");
-	for (int i = 0; a->card[i].shape != NULL; i++)
+	for (int i = 0; i < a->count; i++)
 	{
-		printf("Card [%d] : %s %d\n", i + 1, a->card[i].shape, a->card[i].number);
+		if (a->open[i] == 0)
+			printf("Card [%d] : Blined\n", i + 1);
+		else
+			printf("Card [%d] : %s %d\n", i + 1, a->card[i].shape, a->card[i].number);
 	}
 	printf("-------------------------\n\n");
+}
+
+void getCard(struct Player *a, struct Deck *deck)
+{
+	static struct Card tmp_card;
+	tmp_card = giveCard(deck);
+	a->card[a->count].shape = tmp_card.shape;
+	a->card[a->count].number = tmp_card.number;
+	a->count++;
+}
+
+void openCard(struct Player *a, int num, int open_n)
+{
+	a->open[num] = open_n;
 }
