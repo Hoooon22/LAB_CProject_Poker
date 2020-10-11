@@ -34,6 +34,7 @@ void start(struct Deck *deck, struct Player *p, struct Player c[])
 	}
 	printf("==Player Card list==\n"); // player
 	viewCard(p);
+	checkRank(p);
 	printf("==Computer 1 Card list==\n"); // Computer 1
 	viewCard(&c[0]);
 	printf("==Computer 2 Card list==\n"); // Computer 2
@@ -61,6 +62,7 @@ void start(struct Deck *deck, struct Player *p, struct Player c[])
 
 	printf("==Player Card list==\n"); // player
 	viewCard(p);
+	checkRank(p);
 	printf("==Computer 1 Card list==\n"); // Computer 1
 	viewCard(&c[0]);
 	printf("==Computer 2 Card list==\n"); // Computer 2
@@ -88,6 +90,7 @@ void start(struct Deck *deck, struct Player *p, struct Player c[])
 
 	printf("==Player Card list==\n"); // player
 	viewCard(p);
+	checkRank(p);
 	printf("==Computer 1 Card list==\n"); // Computer 1
 	viewCard(&c[0]);
 	printf("==Computer 2 Card list==\n"); // Computer 2
@@ -115,6 +118,7 @@ void start(struct Deck *deck, struct Player *p, struct Player c[])
 
 	printf("==Player Card list==\n"); // player
 	viewCard(p);
+	checkRank(p);
 	printf("==Computer 1 Card list==\n"); // Computer 1
 	viewCard(&c[0]);
 	printf("==Computer 2 Card list==\n"); // Computer 2
@@ -140,6 +144,7 @@ void start(struct Deck *deck, struct Player *p, struct Player c[])
 
 	printf("==Player Card list==\n"); // player
 	viewCard(p);
+	checkRank(p);
 	printf("==Computer 1 Card list==\n"); // Computer 1
 	viewCard(&c[0]);
 	printf("==Computer 2 Card list==\n"); // Computer 2
